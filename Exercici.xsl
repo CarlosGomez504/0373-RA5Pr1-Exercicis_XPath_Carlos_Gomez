@@ -6,6 +6,12 @@
             <body>
                 <h1>Biblioteca</h1>
                 <p>Lista de documentos disponibles</p>
+                <hr/>
+                <p>Título del primer libro: <xsl:value-of select="biblioteca/llibre[1]/titol"/></p>
+                <p>Autor del primer libro: <xsl:value-of select="biblioteca/llibre[1]/autor"/></p>
+                
+                <p>Código de la revista: <xsl:value-of select="biblioteca/revista/@codi"/></p>
+                
             </body>
         </html>
     </xsl:template>
