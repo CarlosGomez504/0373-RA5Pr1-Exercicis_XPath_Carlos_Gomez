@@ -52,6 +52,17 @@
                         <xsl:if test="any &lt; 1980"> (Libro antiguo)</xsl:if>
                     </p>
                 </xsl:for-each>
+                
+                <h3>Libros ordenados por Año más antiguos primero</h3>
+                <table border="1">
+                    <xsl:for-each select="biblioteca/llibre">
+                        <xsl:sort select="any" order="ascending"/>
+                        <tr>
+                            <td><xsl:value-of select="any"/></td>
+                            <td><xsl:value-of select="titol"/></td>
+                        </tr>
+                    </xsl:for-each>
+                </table>
 
 
             </body>
