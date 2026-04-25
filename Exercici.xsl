@@ -73,5 +73,12 @@
 
             </body>
         </html>
-    </xsl:template>
+        
+    </xsl:template> <xsl:template match="llibre"> 
+        <li><xsl:value-of select="titol"/></li> 
+    </xsl:template> 
+    <xsl:template match="revista"> 
+        <li><xsl:value-of select="titol"/> (Revista)</li> 
+    </xsl:template> 
+
 </xsl:stylesheet>
