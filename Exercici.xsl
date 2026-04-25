@@ -27,7 +27,7 @@
                         <th>Año</th>
                         <th>Precio</th>
                     </tr>
-                <xsl:for-each select="biblioteca/llibre">
+                    <xsl:for-each select="biblioteca/llibre">
                         <tr>
                             <td><xsl:value-of select="titol"/></td>
                             <td><xsl:value-of select="autor"/></td>
@@ -43,7 +43,7 @@
                     </xsl:if>
                     
                     <p>
-                        <xsl:value-of select="titol"/>: 
+                        <xsl:value-of select="titol"/>:
                         <xsl:choose>
                             <xsl:when test="@estat='disponible'">Disponible </xsl:when>
                             <xsl:otherwise>En préstamo </xsl:otherwise>
@@ -70,15 +70,22 @@
                 <ul><xsl:apply-templates select="biblioteca/llibre"/></ul>
                 <h3>Revistas:</h3>
                 <ul><xsl:apply-templates select="biblioteca/revista"/></ul>
-
+                
+                <hr/>
+                <p><strong>Total de libros:</strong>
+                    <xsl:value-of select="count(biblioteca/llibre)"/>
+                </p>
+                
             </body>
         </html>
-        
-    </xsl:template> <xsl:template match="llibre"> 
-        <li><xsl:value-of select="titol"/></li> 
     </xsl:template> 
-    <xsl:template match="revista"> 
-        <li><xsl:value-of select="titol"/> (Revista)</li> 
-    </xsl:template> 
-
+    
+    <xsl:template match="llibre">
+        <li><xsl:value-of select="titol"/></li>
+    </xsl:template>
+    
+    <xsl:template match="revista">
+        <li><xsl:value-of select="titol"/> (Revista)</li>
+    </xsl:template>
+    
 </xsl:stylesheet>
