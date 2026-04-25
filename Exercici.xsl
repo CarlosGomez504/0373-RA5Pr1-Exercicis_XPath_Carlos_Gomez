@@ -3,6 +3,10 @@
     
     <xsl:template match="/">
         <html>
+            <head>
+                <meta charset="UTF-8"/>
+                <title>Biblioteca</title>
+            </head>
             <body>
                 <h1>Biblioteca</h1>
                 <p>Lista de documentos disponibles</p>
@@ -55,8 +59,12 @@
                 
                 <h3>Libros ordenados por Año más antiguos primero</h3>
                 <table border="1">
+                    <tr>
+                        <th>Año</th>
+                        <th>Título</th>
+                    </tr>
                     <xsl:for-each select="biblioteca/llibre">
-                        <xsl:sort select="any" order="ascending"/>
+                        <xsl:sort select="any" order="ascending" data-type="number"/>
                         <tr>
                             <td><xsl:value-of select="any"/></td>
                             <td><xsl:value-of select="titol"/></td>
