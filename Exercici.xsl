@@ -12,6 +12,31 @@
                 
                 <p>Código de la revista: <xsl:value-of select="biblioteca/revista/@codi"/></p>
                 
+                <h3>Lista de Título - Autor</h3>
+                <ul>
+                    <xsl:for-each select="biblioteca/llibre">
+                        <li><xsl:value-of select="titol"/> - <xsl:value-of select="autor"/></li>
+                    </xsl:for-each>
+                </ul>
+                
+                <h3>Tabla de Libros</h3>
+                <table border="1">
+                    <tr>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Año</th>
+                        <th>Precio</th>
+                    </tr>
+                    <xsl:for-each select="biblioteca/llibre">
+                        <tr>
+                            <td><xsl:value-of select="titol"/></td>
+                            <td><xsl:value-of select="autor"/></td>
+                            <td><xsl:value-of select="any"/></td>
+                            <td><xsl:value-of select="preu"/> €</td>
+                        </tr>
+                    </xsl:for-each>
+                </table>
+
             </body>
         </html>
     </xsl:template>
