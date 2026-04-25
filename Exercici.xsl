@@ -27,7 +27,7 @@
                         <th>Año</th>
                         <th>Precio</th>
                     </tr>
-                    <xsl:for-each select="biblioteca/llibre">
+                <xsl:for-each select="biblioteca/llibre">
                         <tr>
                             <td><xsl:value-of select="titol"/></td>
                             <td><xsl:value-of select="autor"/></td>
@@ -36,6 +36,23 @@
                         </tr>
                     </xsl:for-each>
                 </table>
+                <h3>Filtros y Condiciones</h3>
+                <xsl:for-each select="biblioteca/llibre">
+                    <xsl:if test="preu > 12">
+                        <p><strong>Libro caro (>12€):</strong> <xsl:value-of select="titol"/></p>
+                    </xsl:if>
+                    
+                    <p>
+                        <xsl:value-of select="titol"/>: 
+                        <xsl:choose>
+                            <xsl:when test="@estat='disponible'">Disponible </xsl:when>
+                            <xsl:otherwise>En préstamo </xsl:otherwise>
+                        </xsl:choose>
+                        
+                        <xsl:if test="any &lt; 1980"> (Libro antiguo)</xsl:if>
+                    </p>
+                </xsl:for-each>
+
 
             </body>
         </html>
