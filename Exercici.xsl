@@ -63,7 +63,13 @@
                         </tr>
                     </xsl:for-each>
                 </table>
-
+                
+                <hr/>
+                <h2>Secciones con Plantillas</h2>
+                <h3>Libros:</h3>
+                <ul><xsl:apply-templates select="biblioteca/llibre"/></ul>
+                <h3>Revistas:</h3>
+                <ul><xsl:apply-templates select="biblioteca/revista"/></ul>
 
             </body>
         </html>
